@@ -1,0 +1,4 @@
+build/
+git_upload.bat
+.gradle/
+.idea/

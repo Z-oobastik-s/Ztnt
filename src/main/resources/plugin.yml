@@ -1,0 +1,25 @@
+name: Ztnt
+version: '${version}'
+main: org.zoobastiks.ztnt.Ztnt
+api-version: '1.21'
+author: Zoobastiks
+description: Плагин с кастомными TNT с различными эффектами
+softdepend: [PermissionEx]
+permissions:
+  ztnt.admin:
+    description: Доступ ко всем командам плагина
+    default: op
+  ztnt.get:
+    description: Доступ к команде /ztnt get
+    default: op
+  ztnt.give:
+    description: Доступ к команде /ztnt give
+    default: op
+  ztnt.reload:
+    description: Доступ к команде /ztnt reload
+    default: op
+commands:
+  ztnt:
+    description: Главная команда плагина
+    usage: /ztnt <get|give|reload> [параметры]
+    aliases: [ztnt] 

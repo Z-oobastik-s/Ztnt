@@ -1,0 +1,267 @@
+# Конфигурация плагина Ztnt v1.0
+# Автор: Zoobastiks
+
+# ФОРМАТИРОВАНИЕ СООБЩЕНИЙ:
+# 1. Переносы строк: Используйте \n для добавления новой строки
+#    Пример: "Первая строка\nВторая строка"
+#
+# 2. MiniMessage форматирование:
+#    <gradient:#FF0000:#A6EB0F>Текст в градиенте</gradient>
+#    <#FF0000>Текст HEX цветом
+#    <red>Красный текст, <blue>Синий текст
+#    <hover:show_text:"Подсказка">Текст с подсказкой</hover> (работает только в игре)
+
+# Основные настройки
+settings:
+  # Включить отладочный режим (больше информации в консоли)
+  debug: false
+  
+  # Формат вывода в консоль
+  console-prefix: "<gray>[<red>Ztnt</gray>] "
+  
+  # Формат вывода в чат
+  chat-prefix: "<gray>[<red><bold>Ztnt</bold></gray>] "
+  
+  # Настройки миров
+  worlds:
+    # Миры, где разрешено использовать TNT (пустой список разрешает все миры)
+    allowed:
+      - "world"
+      - "lobby_nether"
+      - "lobby_the_end"
+      - "lobby_kattersstructures_deep_blue"
+    
+    # Миры, где запрещено использовать TNT (имеет приоритет над allowed)
+    denied:
+      - "lobby"
+      - "oneblock_world"
+
+# Настройки для различных типов TNT
+tnt-types:
+  # Стандартное TNT с усиленным взрывом
+  standard:
+    name: "Стандартное TNT"
+    lore:
+      - "<gray>Радиус взрыва: <red>20 блоков"
+      - "<gray>Урон: <red>100"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1001
+    explosion:
+      radius: 20
+      damage: 100
+      fire: false
+      block-break: true
+      animation: "DEFAULT"
+  
+  # TNT с огнём
+  fire:
+    name: "Огненное TNT"
+    lore:
+      - "<gray>Радиус взрыва: <red>20 блоков"
+      - "<gray>Урон: <red>100"
+      - "<gray>Создает огненный шторм"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1002
+    explosion:
+      radius: 20
+      damage: 100
+      fire: true
+      block-break: true
+      animation: "FIRE"
+  
+  # TNT без разрушения блоков
+  safe:
+    name: "Безопасное TNT"
+    lore:
+      - "<gray>Радиус взрыва: <red>20 блоков"
+      - "<gray>Урон: <red>100"
+      - "<gray>Не разрушает блоки"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1003
+    explosion:
+      radius: 20
+      damage: 100
+      fire: false
+      block-break: false
+      animation: "SAFE"
+      
+  # Ядерное TNT с огромным радиусом
+  nuke:
+    name: "<gradient:#FF0000:#FFFF00><bold>☢ Ядерное TNT ☢</bold></gradient>"
+    lore:
+      - "<gradient:#FF9900:#FF0000>Радиус взрыва: 40 блоков</gradient>"
+      - "<gradient:#FF0000:#990000>Урон: 200</gradient>"
+      - "<yellow>Создает радиоактивный шторм"
+      - "<red>«Теперь я стал смертью, разрушителем миров»"
+      - "<dark_gray>— Дж. Роберт Оппенгеймер"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1004
+    explosion:
+      radius: 40
+      damage: 200
+      fire: true
+      block-break: true
+      animation: "FIRE"
+      
+  # Молниеносное TNT 
+  lightning:
+    name: "<gradient:#00FFFF:#0000FF><bold>⚡ Молниеносное TNT ⚡</bold></gradient>"
+    lore:
+      - "<gradient:#FFFFFF:#00FFFF>Радиус взрыва: 25 блоков</gradient>"
+      - "<gradient:#00FFFF:#0000FF>Урон: 150</gradient>"
+      - "<aqua>Вызывает гнев Тора"
+      - "<blue>«Пусть сила молний очистит этот мир!»"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1005
+    explosion:
+      radius: 25
+      damage: 150
+      fire: true
+      block-break: true
+      animation: "DEFAULT"
+      
+  # Черная дыра TNT
+  black_hole:
+    name: "<gradient:#660066:#000000><bold>⚫ Черная Дыра TNT ⚫</bold></gradient>"
+    lore:
+      - "<gradient:#9900CC:#660066>Радиус взрыва: 30 блоков</gradient>"
+      - "<gradient:#6600CC:#330066>Урон: 120</gradient>"
+      - "<light_purple>Затягивает все в пустоту"
+      - "<dark_purple>«За горизонтом событий нет пути назад»"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1006
+    explosion:
+      radius: 30
+      damage: 120
+      fire: false
+      block-break: true
+      animation: "SAFE"
+  
+  # Ледяное TNT
+  frost:
+    name: "<gradient:#FFFFFF:#00FFFF><bold>❄ Ледяное TNT ❄</bold></gradient>"
+    lore:
+      - "<gradient:#CCFFFF:#99CCFF>Радиус взрыва: 25 блоков</gradient>"
+      - "<gradient:#99CCFF:#3399FF>Урон: 130</gradient>"
+      - "<aqua>Замораживает всё на своем пути"
+      - "<#0099FF>«Ледяное царство не знает пощады»"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1007
+    explosion:
+      radius: 25
+      damage: 130
+      fire: false
+      block-break: true
+      animation: "DEFAULT"
+  
+  # Квантовое TNT
+  quantum:
+    name: "<gradient:#00FF00:#00FFFF><bold>⚛ Квантовое TNT ⚛</bold></gradient>"
+    lore:
+      - "<gradient:#33FF33:#00CC99>Радиус взрыва: 35 блоков</gradient>"
+      - "<gradient:#00CC99:#00FFFF>Урон: 160</gradient>"
+      - "<#00FF99>Искажает пространство и время"
+      - "<#00CCFF>«Суперпозиция разрушения и созидания»"
+      - "<#00CC99>«Теория вероятностей великолепна!»"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1008
+    explosion:
+      radius: 35
+      damage: 160
+      fire: false
+      block-break: true
+      animation: "DEFAULT"
+  
+  # Адское TNT
+  inferno:
+    name: "<gradient:#FF9900:#990000><bold>🔥 Адское TNT 🔥</bold></gradient>"
+    lore:
+      - "<gradient:#FF6600:#FF0000>Радиус взрыва: 28 блоков</gradient>"
+      - "<gradient:#FF0000:#990000>Урон: 180</gradient>"
+      - "<#FF6600>Превращает мир в пылающий ад"
+      - "<#FF3300>«Когда небеса горят, демоны смеются»"
+      - "<#CC3300>«Жарче, чем в аду Данте»"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1009
+    explosion:
+      radius: 28
+      damage: 180
+      fire: true
+      block-break: true
+      animation: "FIRE"
+      
+  # Звёздное TNT
+  celestial:
+    name: "<gradient:#FFFF99:#9900FF><bold>✨ Звёздное TNT ✨</bold></gradient>"
+    lore:
+      - "<gradient:#FFCC00:#FF99FF>Радиус взрыва: 32 блоков</gradient>"
+      - "<gradient:#FF99FF:#9933CC>Урон: 155</gradient>"
+      - "<#FFCC66>Призывает силу космоса"
+      - "<#FF99CC>«Сияние тысячи далёких звёзд»"
+      - "<#CC99FF>«Пыль небес в твоих руках»"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1010
+    explosion:
+      radius: 32
+      damage: 155
+      fire: false
+      block-break: true
+      animation: "DEFAULT"
+      
+  # Землетрясение TNT
+  earthquake:
+    name: "<gradient:#996633:#663300><bold>🌋 Землетрясение TNT 🌋</bold></gradient>"
+    lore:
+      - "<gradient:#CC9966:#996633>Радиус взрыва: 38 блоков</gradient>"
+      - "<gradient:#996633:#663300>Урон: 190</gradient>"
+      - "<#996633>Сотрясает землю до самого ядра"
+      - "<#CC6633>«Когда земля дрожит под ногами»"
+      - "<#663300>«Рихтер был бы впечатлён»"
+      - "<gray>Создан с помощью <gold>Ztnt v1.0"
+    material: TNT
+    custom-model-data: 1011
+    explosion:
+      radius: 38
+      damage: 190
+      fire: false
+      block-break: true
+      animation: "DEFAULT"
+
+# Сообщения плагина
+messages:
+  # Сообщения об ошибках
+  error:
+    no-permission: "<red>У вас нет прав на использование этой команды!"
+    player-not-found: "<red>Игрок не найден!"
+    invalid-tnt-type: "<red>Неизвестный тип TNT! Доступные типы: {types}"
+    invalid-number: "<red>Некорректное число! Используйте положительное число."
+    invalid-command: "<red>Неверная команда! Используйте: /ztnt <get|give|reload> [параметры]"
+    console-cannot-get: "<red>Консоль не может получить TNT. Используйте /ztnt give <игрок> <тип> [количество]"
+    world-denied: "<red>В этом мире <bold>запрещено</bold> использование TNT!"
+  
+  # Сообщения успеха
+  success:
+    got-tnt: "<gradient:#FF0000:#A6EB0F>Вы получили TNT типа</gradient> <yellow>{type} <gray>(<white>x{amount}<gray>)"
+    gave-tnt: "<gradient:#A6EB0F:#FF0000>Игроку {player} выдано TNT типа</gradient> <yellow>{type} <gray>(<white>x{amount}<gray>)"
+    reload: "<green>Плагин успешно перезагружен!"
+  
+  # Дополнительные сообщения
+  other:
+    help-message: |
+      <gray>----- <red><bold>Ztnt</bold> <gray>v1.0 помощь -----
+      <yellow>/ztnt get <тип> [количество] <gray>- Получить TNT
+      <yellow>/ztnt give <игрок> <тип> [количество] <gray>- Выдать TNT игроку
+      <yellow>/ztnt reload <gray>- Перезагрузить плагин
+      <gray>Доступные типы TNT: <white>{types}
+    plugin-enabled: "<green>Плагин успешно включен!"
+    plugin-disabled: "<red>Плагин отключен." 
